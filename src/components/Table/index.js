@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import EmployeeContext from '../../utils/EmployeeContext';
+
 
 function Table() {
+    const { filter, employeeArr } = useContext(EmployeeContext);
+
+
     return (
         <table className="table table-striped bg-secondary mt-2 w-100">
             <thead className="thead-light">
@@ -11,12 +16,18 @@ function Table() {
                     <th>Cube Number</th>
                 </tr>
             </thead>
-            {/* <tr>
-                <td>Jill</td>
-                <td>Smith</td>
-                <td>50</td>
-            </tr> */}
-            
+            <tbody>
+                {employeeArr.map((v, i) => {
+                    return (
+                        <tr key={i}>
+                            <td>{v.ln}</td>
+                            <td>{v.fn}</td>
+                            <td>{v.pn}</td>
+                            <td>{v.cn}</td>
+                        </tr>
+                    )
+                })}
+            </tbody>
         </table>
     );
 }
