@@ -18,9 +18,9 @@ function Container() {
             bool = bool === "true" ? false : true
             const employeeArr = employeeState.employeeArr.sort((a, b) => {
                 if (bool) {
-                    return a[empprop] > b[empprop] ? 1 : -1
-                } else {
                     return a[empprop] < b[empprop] ? 1 : -1
+                } else {
+                    return a[empprop] > b[empprop] ? 1 : -1
                 }
             })
             setEmployeeState({ ...employeeState, employeeArr, [field]: bool })
