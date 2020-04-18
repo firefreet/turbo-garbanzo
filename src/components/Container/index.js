@@ -51,6 +51,11 @@ function Container() {
     return (
         <EmployeeContext.Provider value={employeeState}>
             <div className="container">
+                <div className="row">
+                    <h3 className="text-center w-100">
+                        Employee Directory
+                    </h3>
+                </div>
                 <Nav />
                 <Table />
             </div>

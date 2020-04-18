@@ -19,12 +19,12 @@ function Filter() {
                 </label>
             </div>
             <div className=" float-right col-8 col-lg-3 mt-1">
-                <input className="form-control" id="searchField" placeholder="by name"
+                <input className="form-control" id="searchField" placeholder="name"
                     onChange={(event) => { changeFilter(event,employeeState) }}
                     value={filter}>
                 </input>
             </div>
-            <div className="col-3 col-lg-2 mt-1">
+            <div className="col-5 col-lg-2 mt-1">
                 <div htmlFor="customRadionInline1">
                     <p className="d-inline">Filter by</p>
                     <small>
@@ -32,7 +32,7 @@ function Filter() {
                     </small>
                 </div>
             </div>
-            <div className="custom-control custom-radio custom-control-inline col col-lg-2 mt-1">
+            <div className="custom-control custom-radio custom-control-inline col col-lg-2 mt-1 mx-0">
                 <input type="radio"
                     id="lastNameFilter"
                     name="lastNameFilter"
@@ -42,7 +42,7 @@ function Filter() {
                 </input>
                 <label className="custom-control-label" htmlFor="lastNameFilter">L Name</label>
             </div>
-            <div className="custom-control custom-radio custom-control-inline col col-lg-2 mt-1">
+            <div className="custom-control custom-radio custom-control-inline col col-lg-2 mt-1 mx-0">
                 <input
                     type="radio"
                     id="firstNameFilter"
