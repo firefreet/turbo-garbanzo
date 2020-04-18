@@ -23,4 +23,4 @@ The user may:
   https://shrouded-forest-87418.herokuapp.com
 
 # Example of application output
-![screenshot](.Untitled 3.png)
+![screenshot](Untitled 3.png)
