@@ -2,11 +2,14 @@ import React from "react";
 
 const EmployeeContext = React.createContext({
   filter: "",
-  lastNameSort: false,
+  lastNameSort: true,
   firstNameSort: false,
   cubeNumberSort: false,
+  lastNameFilter: true,
+  firstNameFilter: false,
   changeSort: ()=>{},
-  changeFilter: ()=>{}
+  changeFilter: ()=>{},
+  changeRadio: ()=>{}
 });
 
 export default EmployeeContext;

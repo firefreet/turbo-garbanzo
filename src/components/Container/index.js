@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Nav from '../Nav';
 import Table from '../Table'
 import EmployeeContext from '../../utils/EmployeeContext'
@@ -10,10 +10,14 @@ function Container() {
         employeeArr: employeeArr,
         filter: "",
         lastNameSort: true,
-        firstNameSort: true,
-        cubeNumberSort: true,
-        changeSort: (event) => {
+        firstNameSort: false,
+        cubeNumberSort: false,
+        lastNameFilter: true,
+        firstNameFilter: false,
+        changeSort: (event,state) => {
             event.preventDefault();
+            console.log(state);
+            console.log(employeeState);
             let { field, bool, empprop } = event.target.dataset
             bool = bool === "true" ? false : true
             const employeeArr = employeeState.employeeArr.sort((a, b) => {
@@ -23,16 +27,26 @@ function Container() {
                     return a[empprop] > b[empprop] ? 1 : -1
                 }
             })
-            setEmployeeState({ ...employeeState, employeeArr, [field]: bool })
+            setEmployeeState({ ...state, employeeArr, [field]: bool });
         },
-        changeFilter: (search) => {
-            setEmployeeState({ ...employeeState, filter: search })
+        changeFilter: (event,state) => {
+            event.preventDefault();
+            console.log(employeeState);
+            let { value } = event.target;
+            setEmployeeState({ ...state, filter: value });
+        },
+        changeRadio: (event,state) => {
+            console.log(employeeState);
+            let name = event.target.name
+            let val = false
+            if (name === "lastNameFilter") {
+                setEmployeeState({ ...state, [name]: (!val), firstNameFilter: val})
+            } else {
+                setEmployeeState({...state, [name]: (!val), lastNameFilter: val})
+            }
+
         }
     });
-
-    useEffect(() => {
-
-    }, [employeeState.filter, employeeState.lastNameSort, employeeState.firstNameSort, employeeState.cubeNumberSort])
 
     return (
         <EmployeeContext.Provider value={employeeState}>
